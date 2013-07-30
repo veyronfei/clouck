@@ -1,0 +1,247 @@
+<%@ include file="/common/taglibs.jsp"%>
+
+<tr>
+    <td>
+    <c:choose>
+        <c:when test="${ipPermission.ipProtocol == 'icmp'}">
+		    <c:choose>
+		        <c:when test="${ipPermission.fromPort == '-1'}">
+		            ALL
+		        </c:when>
+		        <c:when test="${ipPermission.fromPort == '0'}">
+		            Echo Reply
+		        </c:when>
+		        <c:when test="${ipPermission.fromPort == '3'}">
+		            Destination Unreachable
+		            <c:choose>
+		                <c:when test="${ipPermission.toPort == '0'}">
+		                / destination network unreachable
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '1'}">
+		                / destination host unreachable
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '2'}">
+		                / destination protocol unreachable
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '3'}">
+		                / destination port unreachable
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '4'}">
+		                / fragmentation required, and DF flag set
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '5'}">
+		                / source route failed
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '6'}">
+		                / destination network unknown
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '7'}">
+		                / destination host unknown
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '8'}">
+		                / source host isolated
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '9'}">
+		                / network administratively prohibited
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '10'}">
+		                / host administratively prohibited
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '11'}">
+		                / network unreachable for TOS
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '12'}">
+		                / host unreachable for TOS
+		                </c:when>
+		                <c:when test="${ipPermission.toPort == '13'}">
+		                / communication administratively prohibited
+		                </c:when>
+		            </c:choose>
+		        </c:when>
+                <c:when test="${ipPermission.fromPort == '4'}">
+                    Source Quench
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '5'}">
+                    Redirect Message
+                    <c:choose>
+                        <c:when test="${ipPermission.toPort == '0'}">
+                        / redirect datagram for the network
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '1'}">
+                        / redirect datagram for the host
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '2'}">
+                        / redirect datagram for the TOS &amp; network
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '3'}">
+                        / redirect datagram for the TOS &amp; host
+                        </c:when>
+                    </c:choose>
+				</c:when>
+                <c:when test="${ipPermission.fromPort == '6'}">
+                    Alternate Host Address
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '8'}">
+                    Echo Request
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '9'}">
+                    Router Advertisement
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '10'}">
+                    Router Solicitation
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '11'}">
+                    Time Exceeded
+                    <c:choose>
+                        <c:when test="${ipPermission.toPort == '0'}">
+                        / TTL expired transit
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '1'}">
+                        / fragmentation reasembly time exceeded
+                        </c:when>
+                    </c:choose>
+				</c:when>
+                <c:when test="${ipPermission.fromPort == '12'}">
+                    Parameter Problem: Bad IP header
+                    <c:choose>
+                        <c:when test="${ipPermission.toPort == '0'}">
+                        / pointer indicates the error
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '1'}">
+                        / missing a required option
+                        </c:when>
+                        <c:when test="${ipPermission.toPort == '2'}">
+                        / bad length
+                        </c:when>
+                    </c:choose>
+				</c:when>
+                <c:when test="${ipPermission.fromPort == '13'}">
+                    Timestamp
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '14'}">
+                    Timestamp Reply
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '15'}">
+                    Information Request
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '16'}">
+                    Information Reply
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '17'}">
+                    Address Mask Request
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '18'}">
+                    Address Mask Reply
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '30'}">
+                    Traceroute
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '31'}">
+                    Datagram Conversion Error
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '32'}">
+                    Mobile Host Redirect
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '33'}">
+                    Where Are You
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '34'}">
+                    Here I Am
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '35'}">
+                    Mobile Registration Request
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '36'}">
+                    Mobile Registration Reply
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '37'}">
+                    Domain Name Request
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '38'}">
+                    Domain Name Reply
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '39'}">
+                    SKIP Algorithm Discovery Protocol
+                </c:when>
+                <c:when test="${ipPermission.fromPort == '40'}">
+                    Photuris, Security Failures
+                </c:when>
+		    </c:choose>
+        </c:when>
+        <c:when test="${ipPermission.ipProtocol == '-1'}">
+            ALL
+        </c:when>
+		<c:otherwise>
+            <c:choose>
+                <c:when test="${ipPermission.fromPort == ipPermission.toPort}">
+                    ${ipPermission.fromPort}
+                    <c:choose>
+                        <c:when test="${ipPermission.fromPort == 22}">
+                        (SSH)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 25}">
+	                    (SMTP)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 53}">
+                        (DNS)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 80}">
+                        (HTTP)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 110}">
+                        (POP3)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 143}">
+                        (IMAP)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 389}">
+                        (LDAP)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 443}">
+                        (HTTPS)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 465}">
+                        (SMTPS)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 993}">
+                        (IMAPS)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 995}">
+                        (POP3S)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 1433}">
+                        (MS SQL)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 3306}">
+                        (MYSQL)
+                        </c:when>
+                        <c:when test="${ipPermission.fromPort == 3389}">
+                        (RDP)
+                        </c:when>
+                    </c:choose>
+                </c:when>
+				<c:otherwise>
+                    ${ipPermission.fromPort} - ${ipPermission.toPort}
+                </c:otherwise>
+            </c:choose>
+        </c:otherwise>
+    </c:choose>
+    </td>
+    <td>
+        <c:choose>
+            <c:when test="${isUserIdGroupPairs == 'true'}">
+                <c:choose>
+                    <c:when test="${ownerId == userIdGroupPair.userId}">
+                    ${userIdGroupPair.groupId} (${userIdGroupPair.groupName})
+                    </c:when>
+                    <c:otherwise>
+                    ${userIdGroupPair.userId}/${userIdGroupPair.groupName}
+                    </c:otherwise>
+                </c:choose>
+            </c:when>
+            <c:otherwise>
+                ${ipRange}
+            </c:otherwise>
+        </c:choose>
+    </td>
+</tr>

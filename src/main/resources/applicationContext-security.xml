@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+    <http>
+        <intercept-url pattern="/app/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/app/signUp*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/app/**" access="ROLE_USER, ROLE_ADMINISTRATOR" />
+
+        <form-login login-page="/app/login" default-target-url="/app/accounts/ec2/overview" authentication-failure-url="/app/login?error=true" />
+        <logout delete-cookies="JSESSIONID" logout-success-url="/app/login" />
+        <session-management invalid-session-url="/app/login" />
+    </http>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="mongoDbUserDetailsService" />
+    </authentication-manager>
+</beans:beans>

@@ -1,0 +1,14 @@
+<%@ include file="/common/taglibs.jsp"%>
+
+<c:forEach items="${ipPermissions}" var="ipPermission">
+    <c:if test="${ipPermission.ipProtocol == ipProtocol}">
+        <c:forEach items="${ipPermission.userIdGroupPairs}" var="userIdGroupPair">
+            <c:set var="isUserIdGroupPairs" value="true"/>
+            <%@ include file="ec2-security-ports.jspf"%>
+        </c:forEach>
+        <c:forEach items="${ipPermission.ipRanges}" var="ipRange">
+            <c:set var="isUserIdGroupPairs" value="false"/>
+            <%@ include file="ec2-security-ports.jspf"%>
+        </c:forEach>
+    </c:if>
+</c:forEach>

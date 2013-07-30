@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/decorators">
+    <decorator name="login-theme" page="login-theme.jsp" />
+    <decorator name="simple-theme" page="simple-theme.jsp" />
+    <decorator name="noty-theme" page="no-theme.jsp" />
+    <decorator name="main-theme" page="main-theme.jsp" />
+</decorators>

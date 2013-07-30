@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:repository="http://www.springframework.org/schema/data/repository"
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+    xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
+                        http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+                        http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- if has replica set -->
+    <!-- <mongo:mongo id="replicaSetMongo" replica-set="127.0.0.1:27017,localhost:27018"/> -->
+    <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}">
+        <mongo:options
+            auto-connect-retry="true"
+            connections-per-host="40"
+            connect-timeout="20000"
+            socket-timeout="60000"
+            threads-allowed-to-block-for-connection-multiplier="1500"
+            socket-keep-alive="true"/>
+            </mongo:mongo>
+    
+<!--     <mongo:db-factory
+        id="mongoFactory"
+        dbname="database"
+        username="joe"
+        password="secret"
+        mongo-ref="mongo"/> -->
+
+    <mongo:db-factory id="mongoDbFactory" dbname="clouck" mongo-ref="mongo" />
+
+    <mongo:repositories base-package="com.clouck.repository" />
+    
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+        <!-- enable this during dev -->
+        <property name="writeResultChecking" value="EXCEPTION" />
+    </bean>
+    
+    <!-- Rabbitmq sender -->
+    <rabbit:connection-factory id="connectionFactory" host="localhost" port="5672" />
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.JsonMessageConverter" />
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" message-converter="jsonMessageConverter"/>
+    <rabbit:admin connection-factory="connectionFactory" />
+    <!-- for scan resource -->
+    <rabbit:queue name="clouck.queue.scan.resource" durable="false"/>
+    <rabbit:direct-exchange name="clouck.exchange.scan.resource" >
+        <rabbit:bindings>
+            <rabbit:binding queue="clouck.queue.scan.resource" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <!-- Rabbitmq receiver -->
+    <rabbit:listener-container connection-factory="connectionFactory" message-converter="jsonMessageConverter" concurrency="20">
+        <rabbit:listener queue-names="clouck.queue.scan.resource" ref="scanResourceWorker" method="receive" />
+    </rabbit:listener-container>
+    
+    <!-- for generte event -->
+    <rabbit:queue name="clouck.queue.generate.event" durable="false"/>
+    <rabbit:direct-exchange name="clouck.exchange.generate.event" >
+        <rabbit:bindings>
+            <rabbit:binding queue="clouck.queue.generate.event" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <!-- Rabbitmq receiver -->
+    <rabbit:listener-container connection-factory="connectionFactory" message-converter="jsonMessageConverter" concurrency="20">
+        <rabbit:listener queue-names="clouck.queue.generate.event" ref="generateEventWorker" method="receive" />
+    </rabbit:listener-container>
+
+    <!-- <repository:jackson-populator location="classpath:data.json" /> -->
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+<!--         <property name="formatters">
+            <set>
+                <ref bean="accountFormatter" />
+            </set>
+        </property>
+        <property name="converters">
+            <set>
+                ec2
+                <ref bean="ec2AddressVersionConverter"/>
+                <ref bean="ec2ImageVersionConverter"/>
+                <ref bean="ec2InstanceVersionConverter"/>
+                <ref bean="ec2KeyPairVersionConverter"/>
+                <ref bean="ec2PlacementGroupVersionConverter"/>
+                <ref bean="ec2SecurityGroupVersionConverter"/>
+                <ref bean="ec2SnapshotVersionConverter"/>
+                <ref bean="ec2VolumeVersionConverter"/>
+                rds
+                <ref bean="rdsDBInstanceVersionConverter"/>
+                representation
+                <ref bean="eventRepConverter"/>
+            </set>
+        </property> -->
+    </bean>
+
+    <bean class="org.springframework.data.repository.support.DomainClassConverter">
+        <constructor-arg ref="conversionService" />
+    </bean>
+
+    <aop:aspectj-autoproxy />
+    
+    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- Activates scanning of @Autowired -->
+    <context:annotation-config />
+
+    <!-- Activates scanning of @Repository, @Service and now @Aspect -->
+    <context:component-scan base-package="com.clouck">
+        <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
+    </context:component-scan>
+
+    <task:annotation-driven executor="executor" scheduler="scheduler"/>
+    <task:executor id="executor" pool-size="80"/>
+    <task:scheduler id="scheduler" pool-size="3"/>
+
+    <!-- trigger JSR-303 to initialize using its default bootstrap mechanism -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+    <!-- For mail settings and future properties files -->
+<!--     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:system.properties</value>
+            </list>
+        </property>
+    </bean> -->
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>message</value>
+            </list>
+        </property>
+    </bean>
+    <context:property-placeholder location="classpath:system.properties"/>
+
+    <!-- =================================================================== -->
+    <!-- Mail: Sender and Velocity configuration                             -->
+    <!-- =================================================================== -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${email.host}" />
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <!-- this is important, otherwise you will get the com.sun.mail.smtp.SMTPSendFailedException: 530 5.7.0 Must issue a STARTTLS command first -->
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <!-- <prop key="mail.smtp.timeout">25000</prop> -->
+            </props>
+        </property>
+        <property name="username" value="${email.username}" />
+        <property name="password" value="${email.password}" />
+        <property name="port" value="${email.port}"/>
+    </bean>
+
+    <!-- this is a template message that we can pre-load with default state -->
+    <bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
+        <property name="from" value="${email.default.from}" />
+    </bean>
+
+    <!-- Configure Velocity for sending e-mail -->
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">
+                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+            </props>
+        </property>
+    </bean>
+</beans>

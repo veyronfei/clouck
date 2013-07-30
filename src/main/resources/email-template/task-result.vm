@@ -1,0 +1,40 @@
+Hi, ${user.fullName}
+
+#if( $Ec2DescribeInstancesTaskResult )
+    Instance Id | State
+#end
+#foreach( $result in $Ec2DescribeInstancesTaskResult )
+    ${result.instanceId} | ${result.state}
+#end
+
+#if( $Ec2DescribeImagesTaskResult )
+    Image Id
+#end
+#foreach( $result in $Ec2DescribeImagesTaskResult )
+    ${result.imageId} | ${result.rootDeviceType} | ${result.name} | ${result.platform}
+#end
+
+#if( $Ec2DescribeAddressesTaskResult )
+    Address | Instance ID | ENI ID | Scope
+#end
+#foreach( $result in $Ec2DescribeAddressesTaskResult )
+    ${result.publicId} | ${result.instanceId} | ${result.networkInterfaceId} | ${result.domain}
+#end
+
+#if( $Ec2DescribeSnapshotsTaskResult )
+    Snapshot ID | Capacity | Description | Status | Started | Progress
+#end
+#foreach( $result in $Ec2DescribeSnapshotsTaskResult )
+    ${result.snapshotId} | ${result.volumeSize} | ${result.description} | ${result.state} | ${result.startTime} | ${result.progress}
+#end
+
+#if( $S3ListBucketsTaskResult )
+    Bucket Name | Number Of Objects | Size
+#end
+#foreach( $result in $S3ListBucketsTaskResult )
+    ${result.bucketName} | ${result.numOfObjects} | ${result.bucketSize}
+#end
+
+The Cloud Script team
+
+http://www.cloudscript.com
