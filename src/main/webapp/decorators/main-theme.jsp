@@ -173,7 +173,7 @@ html, body {
 							    <a href="/app/accounts/${currentAccount.id}/ec2/loadBalancers/versions">Load Balancers</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'keyPairs'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/keyPairs?at=${millis}">Key Pairs</a>
+							    <a href="/app/accounts/${currentAccount.id}/ec2/keyPairs/versions">Key Pairs</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'networkInterfaces'}">active</c:if>">
 							    <a href="/app/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}">Network Interfaces</a>
