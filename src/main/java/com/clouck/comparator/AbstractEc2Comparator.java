@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 

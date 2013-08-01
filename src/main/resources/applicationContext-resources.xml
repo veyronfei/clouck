@@ -79,39 +79,10 @@
 
     <!-- <repository:jackson-populator location="classpath:data.json" /> -->
 
-    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-<!--         <property name="formatters">
-            <set>
-                <ref bean="accountFormatter" />
-            </set>
-        </property>
-        <property name="converters">
-            <set>
-                ec2
-                <ref bean="ec2AddressVersionConverter"/>
-                <ref bean="ec2ImageVersionConverter"/>
-                <ref bean="ec2InstanceVersionConverter"/>
-                <ref bean="ec2KeyPairVersionConverter"/>
-                <ref bean="ec2PlacementGroupVersionConverter"/>
-                <ref bean="ec2SecurityGroupVersionConverter"/>
-                <ref bean="ec2SnapshotVersionConverter"/>
-                <ref bean="ec2VolumeVersionConverter"/>
-                rds
-                <ref bean="rdsDBInstanceVersionConverter"/>
-                representation
-                <ref bean="eventRepConverter"/>
-            </set>
-        </property> -->
-    </bean>
-
-    <bean class="org.springframework.data.repository.support.DomainClassConverter">
-        <constructor-arg ref="conversionService" />
-    </bean>
-
     <aop:aspectj-autoproxy />
     
     <!-- JSR-303 support will be detected on classpath and enabled automatically -->
-    <mvc:annotation-driven conversion-service="conversionService"/>
+    <mvc:annotation-driven />
 
     <!-- Activates scanning of @Autowired -->
     <context:annotation-config />
@@ -128,16 +99,6 @@
     <!-- trigger JSR-303 to initialize using its default bootstrap mechanism -->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
-    <!-- For mail settings and future properties files -->
-<!--     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="ignoreUnresolvablePlaceholders" value="true"/>
-        <property name="locations">
-            <list>
-                <value>classpath:system.properties</value>
-            </list>
-        </property>
-    </bean> -->
-
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
@@ -146,40 +107,4 @@
         </property>
     </bean>
     <context:property-placeholder location="classpath:system.properties"/>
-
-    <!-- =================================================================== -->
-    <!-- Mail: Sender and Velocity configuration                             -->
-    <!-- =================================================================== -->
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="${email.host}" />
-        <property name="defaultEncoding" value="UTF-8"/>
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.smtp.auth">true</prop>
-                <!-- this is important, otherwise you will get the com.sun.mail.smtp.SMTPSendFailedException: 530 5.7.0 Must issue a STARTTLS command first -->
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <!-- <prop key="mail.smtp.timeout">25000</prop> -->
-            </props>
-        </property>
-        <property name="username" value="${email.username}" />
-        <property name="password" value="${email.password}" />
-        <property name="port" value="${email.port}"/>
-    </bean>
-
-    <!-- this is a template message that we can pre-load with default state -->
-    <bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
-        <property name="from" value="${email.default.from}" />
-    </bean>
-
-    <!-- Configure Velocity for sending e-mail -->
-    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
-        <property name="velocityProperties">
-            <props>
-                <prop key="resource.loader">class</prop>
-                <prop key="class.resource.loader.class">
-                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
-                </prop>
-            </props>
-        </property>
-    </bean>
 </beans>

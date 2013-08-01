@@ -3,18 +3,14 @@ import static com.clouck.util.ResourceUtil.notEqual;
 import static com.clouck.util.ResourceUtil.notEqualCollection;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.Validate;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.amazonaws.services.ec2.model.CreateVolumePermission;
 import com.amazonaws.services.ec2.model.ProductCode;
 import com.amazonaws.services.ec2.model.Snapshot;
-import com.clouck.model.Event;
-import com.clouck.model.EventType;
 import com.clouck.model.aws.AbstractResource;
 
 @Document(collection = "ec2_snapshot")

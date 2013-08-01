@@ -2,7 +2,7 @@ package com.clouck.model.aws.comparator;
 
 import java.util.Objects;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 public abstract class AbstractComparator {
 
