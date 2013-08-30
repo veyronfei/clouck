@@ -64,7 +64,7 @@
 				</c:forEach>
 				</td>
 				<td>
-				    <a class="btn" href="/app/accounts/${currentAccount.id}/ec2/keyPairs?at=${ec2VersionMetaRep.millis}${regionUrl}">Browse</a>
+				    <a class="btn" href="/accounts/${currentAccount.id}/ec2/keyPairs?at=${ec2VersionMetaRep.millis}${regionUrl}">Browse</a>
 				</td>
 			</tr>
 			</c:forEach>

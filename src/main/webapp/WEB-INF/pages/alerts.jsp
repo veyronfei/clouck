@@ -14,7 +14,7 @@
 
 <div class="cb">&nbsp;</div>
 <div id="node_form">
-	<form:form method="post" action="/app/alerts" modelAttribute="user" class="main" id="new_node" >
+	<form:form method="post" action="/alerts" modelAttribute="user" class="main" id="new_node" >
 	    <form:hidden path="email" />
         <form:hidden path="password" />
         <form:hidden path="enabled" />
@@ -59,7 +59,7 @@
                 <tr id="template_854bd5d9-45a7-4fbf-bffe-c3c8e58ab06f">
                     <td id="description" class="vat">${eventType.description}</td>
                     <td class="action p0 w6">
-                        <a href="/app/alerts/${eventType.name}" class="btn btn-mini btn-primary">Select</a>
+                        <a href="/alerts/${eventType.name}" class="btn btn-mini btn-primary">Select</a>
                     </td>
                 </tr>
             </c:forEach>

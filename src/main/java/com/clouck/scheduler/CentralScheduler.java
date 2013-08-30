@@ -26,7 +26,7 @@ public class CentralScheduler {
     @Autowired
     private EventService eventService;
 
-    @Scheduled(fixedDelay = 10000)
+//    @Scheduled(fixedDelay = 10000)
     public void scanNonDemoAccounts() {
         log.debug("================scan all accounts================");
 
@@ -38,7 +38,7 @@ public class CentralScheduler {
         log.debug("================end scan all accounts================");
     }
 
-    @Scheduled(fixedDelay = 5000)
+//    @Scheduled(fixedDelay = 5000)
     public void convertEc2Reservation2Ec2Instance() {
         log.debug("================process all accounts raw resources================");
 
@@ -50,7 +50,7 @@ public class CentralScheduler {
         log.debug("================process all accounts raw resources================");
     }
 
-    @Scheduled(fixedDelay = 5000)
+//    @Scheduled(fixedDelay = 5000)
     public void generateEvents() {
         log.debug("================generate events for all accounts================");
 

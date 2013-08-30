@@ -36,7 +36,7 @@
 	                        <c:forEach var="event" items="${events}">
 							<tr>
 								<td><img src="/images/${event.resourceType}.gif" style="margin-left: 20px; margin-top: 0px;"></td>
-								<td><a href="/app/resources/volumes/${event.resourceId}/accounts/${currentAccount.id}">${event.uniqueId}</a></td>
+								<td><a href="/resources/volumes/${event.resourceId}/accounts/${currentAccount.id}">${event.uniqueId}</a></td>
 								<td>${event.message}</td>
 								<td>${event.timeDetected}</td>
 							</tr>

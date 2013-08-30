@@ -557,7 +557,7 @@ public class RepConverter {
             }
             row.add(sb.toString());
             sb = new StringBuilder();
-            sb.append("<a class=\"btn\" href=\"/app/accounts/");
+            sb.append("<a class=\"btn\" href=\"/accounts/");
             sb.append(accountId);
             sb.append("/ec2/");
             sb.append(resourceType);

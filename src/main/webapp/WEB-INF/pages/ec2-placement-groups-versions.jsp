@@ -66,7 +66,7 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort": false,
-            "sAjaxSource": "/app/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/placementGroups"
+            "sAjaxSource": "/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/placementGroups"
         });
     });
 </script>

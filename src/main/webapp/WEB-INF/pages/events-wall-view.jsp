@@ -12,7 +12,7 @@
 	
 		function getEvents() {
 		    console.log('get events..');
-	    	url = 'http://localhost:8080/app/rest/accounts/1/events' + '?since=' + sinceId;
+	    	url = 'http://localhost:8080/rest/accounts/1/events' + '?since=' + sinceId;
 			$.get(url, function(response) {
 				$.each(response, function(index, event) {
 					sinceId = event.version_id;

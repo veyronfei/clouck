@@ -37,7 +37,7 @@ public class SignUpController extends AbstractController {
             return "sign-up";
         } else {
             userService.createUser(signupForm.getFullName(), signupForm.getEmail(), signupForm.getPassword());
-            return "redirect:/app/accounts/ec2/overview";
+            return "redirect:/accounts/ec2/overview";
         }
     }
 }

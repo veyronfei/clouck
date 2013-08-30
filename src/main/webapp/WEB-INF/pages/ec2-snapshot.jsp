@@ -12,12 +12,12 @@
     <div class="span13">
         <ul class="breadcrumb">
             <li>
-                <a href="/app/accounts/${currentAccount.id}/ec2/snapshots/versions">Snapshots</a>
+                <a href="/accounts/${currentAccount.id}/ec2/snapshots/versions">Snapshots</a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">
                 <i class="icon-time"></i>
-                <a href="/app/accounts/${currentAccount.id}/ec2/snapshots?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
+                <a href="/accounts/${currentAccount.id}/ec2/snapshots?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">

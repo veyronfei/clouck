@@ -75,10 +75,10 @@ html, body {
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<a class="brand" href="/app/accounts/${currentAccount.id}/ec2/overview">Clouck</a>
+					<a class="brand" href="/accounts/${currentAccount.id}/ec2/overview">Clouck</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="<c:if test="${currentServiceMenu == 'ec2'}">active</c:if>"><a href="/app/accounts/${currentAccount.id}/ec2/overview">EC2</a></li>
+							<li class="<c:if test="${currentServiceMenu == 'ec2'}">active</c:if>"><a href="/accounts/${currentAccount.id}/ec2/overview">EC2</a></li>
 	<%-- 						<li class="<c:if test="${currentServiceMenu == 'vpc'}">active</c:if>"><a href="#">VPC</a></li>
 							<li class="<c:if test="${currentServiceMenu == 'iam'}">active</c:if>"><a href="#">IAM</a></li> --%>
 						</ul>
@@ -87,10 +87,10 @@ html, body {
 	                            <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">${currentUser.fullName}<b class="caret"></b></a>
 	                            <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 	                                <li>
-	                                    <a role="menuitem" tabindex="-1" href="/app/accounts"">Account Setting</a>
+	                                    <a role="menuitem" tabindex="-1" href="/accounts"">Account Setting</a>
 	                                </li>
 	                                <li role="presentation">
-	                                    <a role="menuitem" tabindex="-1" href="/app/j_spring_security_logout">Logout</a>
+	                                    <a role="menuitem" tabindex="-1" href="/j_spring_security_logout">Logout</a>
 	                                </li>
 	                            </ul>
 	                        </li>
@@ -113,7 +113,7 @@ html, body {
 	                            <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 	                                <c:forEach var="account" items="${accounts}">
 	                                    <li role="presentation">
-	                                        <a role="menuitem" tabindex="-1" href="/app/accounts/${account.id}/ec2/overview">${account.name}</a>
+	                                        <a role="menuitem" tabindex="-1" href="/accounts/${account.id}/ec2/overview">${account.name}</a>
 	                                    </li>
 	                                </c:forEach>
 	                                <li>
@@ -139,44 +139,44 @@ html, body {
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list" style="padding-left: 35px;padding-right: 15px;">
 							<li class="<c:if test="${currentResourceMenu == 'overview'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/overview">Overview</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/overview">Overview</a>
 							</li>
 							<li class="nav-header">INSTANCES</li>
 							<li class="<c:if test="${currentResourceMenu == 'instances'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/instances/versions">Instances</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/instances/versions">Instances</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'spotInstanceRequests'}">active</c:if>">
-	                            <a href="/app/accounts/${currentAccount.id}/ec2/spotInstanceRequests/versions">Spot Requests</a>
+	                            <a href="/accounts/${currentAccount.id}/ec2/spotInstanceRequests/versions">Spot Requests</a>
 	                        </li>
 							<li class="nav-header">IMAGES</li>
 							<li class="<c:if test="${currentResourceMenu == 'amis'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a>
 							</li>
 							<li class="nav-header">ELASTIC BLOCK STORE</li>
 							<li class="<c:if test="${currentResourceMenu == 'volumes'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/volumes/versions">Volumes</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/volumes/versions">Volumes</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'snapshots'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/snapshots/versions">Snapshots</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/snapshots/versions">Snapshots</a>
 							</li>
 							<li class="nav-header">NETWORK & SECURITY</li>
 							<li class="<c:if test="${currentResourceMenu == 'securityGroups'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/securityGroups/versions">Security Groups</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/securityGroups/versions">Security Groups</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'elasticIPs'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/elasticIPs/versions">Elastic IPs</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/elasticIPs/versions">Elastic IPs</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'placementGroups'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/placementGroups/versions">Placement Groups</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/placementGroups/versions">Placement Groups</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'loadBalancers'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/loadBalancers/versions">Load Balancers</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/loadBalancers/versions">Load Balancers</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'keyPairs'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/keyPairs/versions">Key Pairs</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/keyPairs/versions">Key Pairs</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'networkInterfaces'}">active</c:if>">
-							    <a href="/app/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}">Network Interfaces</a>
+							    <a href="/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}">Network Interfaces</a>
 							</li>
 						</ul>
 					</div>
@@ -197,7 +197,7 @@ html, body {
     <%@include file="footer.jspf"%>
 	<!-- Modal -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <form:form modelAttribute="newAccount" action="/app/accounts" method="POST" >
+	    <form:form modelAttribute="newAccount" action="/accounts" method="POST" >
 		    <div class="modal-header">
 		        <c:if test="${currentAccount.id != demoAccountId}">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

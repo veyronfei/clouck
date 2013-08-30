@@ -80,6 +80,6 @@ public class AccountsController extends AbstractController {
         currentUser.getAccountIds().add(newAccount.getId());
         userService.save(currentUser);
         resourceService.scanAccount(newAccount);
-        return "redirect:/app/accounts/" + newAccount.getId() + "/ec2/overview";
+        return "redirect:/accounts/" + newAccount.getId() + "/ec2/overview";
     }
 }

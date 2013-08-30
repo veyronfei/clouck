@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/app/accounts/${currentAccount.id}/ec2/elasticIPs/versions">Elastic IPs</a> <span class="divider">&gt;</span></li>
+            <li><a href="/accounts/${currentAccount.id}/ec2/elasticIPs/versions">Elastic IPs</a> <span class="divider">&gt;</span></li>
             <li class="active">
                 <i class="icon-time"></i>
                 <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -39,7 +39,7 @@
                  <tr>
                     <td>${ec2Resource.region}</td>
                     <td>
-                        <a href="/app/accounts/${currentAccount.id}/ec2/elasticIPs/${ec2Resource.id}?at=${at.time}">${resource.publicIp}</a>
+                        <a href="/accounts/${currentAccount.id}/ec2/elasticIPs/${ec2Resource.id}?at=${at.time}">${resource.publicIp}</a>
                     </td>
                     <td>${resource.instanceId}</td>
                     <td>${resource.networkInterfaceId}</td>

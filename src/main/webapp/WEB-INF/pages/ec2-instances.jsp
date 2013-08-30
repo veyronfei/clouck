@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/app/accounts/${currentAccount.id}/ec2/instances/versions">Instances</a> <span class="divider">&gt;</span></li>
+            <li><a href="/accounts/${currentAccount.id}/ec2/instances/versions">Instances</a> <span class="divider">&gt;</span></li>
             <li class="active">
 	            <i class="icon-time"></i>
 	            <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -44,7 +44,7 @@
                     <td>${ec2Resource.region}</td>
                     <td>${ec2Resource.tag}</td>
                     <td>
-                        <a href="/app/accounts/${currentAccount.id}/ec2/instances/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.instanceId}</a>
+                        <a href="/accounts/${currentAccount.id}/ec2/instances/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.instanceId}</a>
                     </td>
                     <td>${ec2Resource.resource.imageId}</td>
                     <td>${ec2Resource.resource.rootDeviceType}</td>

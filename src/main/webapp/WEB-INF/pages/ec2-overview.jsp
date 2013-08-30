@@ -39,17 +39,17 @@
             <h4>Resources</h4>
         </div>
 		<ul id="resources" class="unstyled" style="font-size: 18px;">
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/instances?at=${millis}${regionUrl}">${instances}&nbsp;&nbsp;Instances</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/spotInstanceRequests?at=${millis}${regionUrl}">${spotInstanceRequests}&nbsp;&nbsp;Spot Requests</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/amis?at=${millis}${regionUrl}">${amis}&nbsp;&nbsp;AMIs</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/volumes?at=${millis}${regionUrl}">${volumes}&nbsp;&nbsp;Volumes</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/snapshots?at=${millis}${regionUrl}">${snapshots}&nbsp;&nbsp;Snapshots</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/securityGroups?at=${millis}${regionUrl}">${securityGroups}&nbsp;&nbsp;Security Groups</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/elasticIPs?at=${millis}${regionUrl}">${elasticIPs}&nbsp;&nbsp;Elastic IPs</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/placementGroups?at=${millis}${regionUrl}">${placementGroups}&nbsp;&nbsp;Placement Groups</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/loadBalancers?at=${millis}${regionUrl}">${loadBalancers}&nbsp;&nbsp;Load Balancers</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/keyPairs?at=${millis}${regionUrl}">${keyPairs}&nbsp;&nbsp;Key Pairs</a></li>
-			<li><a href="/app/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}${regionUrl}">${networkInterfaces}&nbsp;&nbsp;Network Interfaces</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/instances?at=${millis}${regionUrl}">${instances}&nbsp;&nbsp;Instances</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/spotInstanceRequests?at=${millis}${regionUrl}">${spotInstanceRequests}&nbsp;&nbsp;Spot Requests</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/amis?at=${millis}${regionUrl}">${amis}&nbsp;&nbsp;AMIs</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/volumes?at=${millis}${regionUrl}">${volumes}&nbsp;&nbsp;Volumes</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/snapshots?at=${millis}${regionUrl}">${snapshots}&nbsp;&nbsp;Snapshots</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/securityGroups?at=${millis}${regionUrl}">${securityGroups}&nbsp;&nbsp;Security Groups</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/elasticIPs?at=${millis}${regionUrl}">${elasticIPs}&nbsp;&nbsp;Elastic IPs</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/placementGroups?at=${millis}${regionUrl}">${placementGroups}&nbsp;&nbsp;Placement Groups</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/loadBalancers?at=${millis}${regionUrl}">${loadBalancers}&nbsp;&nbsp;Load Balancers</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/keyPairs?at=${millis}${regionUrl}">${keyPairs}&nbsp;&nbsp;Key Pairs</a></li>
+			<li><a href="/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}${regionUrl}">${networkInterfaces}&nbsp;&nbsp;Network Interfaces</a></li>
 		</ul>
     </div>
 </div>

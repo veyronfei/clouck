@@ -16,7 +16,7 @@
 			</div>
 			<div id="accountContainer">
 			    Please notice that only ebs backed instance will be replicated.!!!!
-				<form:form action="/app/addaccount" method="post" modelAttribute="addAccountForm">
+				<form:form action="/addaccount" method="post" modelAttribute="addAccountForm">
 			    <table>
 			        <tr>
 			            <td>

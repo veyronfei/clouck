@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/app/accounts/${currentAccount.id}/ec2/spotInstanceRequests/versions">Spot Requests</a> <span class="divider">&gt;</span></li>
+            <li><a href="/accounts/${currentAccount.id}/ec2/spotInstanceRequests/versions">Spot Requests</a> <span class="divider">&gt;</span></li>
             <li class="active">
 	            <i class="icon-time"></i>
 	            <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -41,7 +41,7 @@
                  <tr>
                     <td>${ec2Resource.region}</td>
                     <td>
-                        <a href="/app/accounts/${currentAccount.id}/ec2/spotInstanceRequests/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.spotInstanceRequestId}</a>
+                        <a href="/accounts/${currentAccount.id}/ec2/spotInstanceRequests/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.spotInstanceRequestId}</a>
                     </td>
                     <td>$<fmt:formatNumber type="number" maxFractionDigits="3" value="${ec2Resource.resource.spotPrice}" /></td>
                     <td>${ec2Resource.resource.launchSpecification.imageId}</td>

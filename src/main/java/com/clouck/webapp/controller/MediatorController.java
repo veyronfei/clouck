@@ -33,6 +33,6 @@ public class MediatorController extends AbstractController {
         } else {
             accountId = user.getAccountIds().get(0);
         }
-        return "redirect:/app/accounts/" + accountId + "/ec2/overview";
+        return "redirect:/accounts/" + accountId + "/ec2/overview";
     }
 }
