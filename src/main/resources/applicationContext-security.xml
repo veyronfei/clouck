@@ -12,7 +12,7 @@
         <!-- <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMINISTRATOR" /> -->
 
         <form-login login-page="/" default-target-url="/accounts/ec2/overview" authentication-failure-url="/?error=true" />
-        <logout delete-cookies="JSESSIONID" logout-success-url="/login" />
+        <logout delete-cookies="JSESSIONID" logout-success-url="/" />
         <session-management invalid-session-url="/" />
     </http>
 
