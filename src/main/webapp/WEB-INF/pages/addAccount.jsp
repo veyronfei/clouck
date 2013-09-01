@@ -4,7 +4,7 @@
 <head>
     <title>Cloud Stage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="icon" href=/images/favicon.ico"/>
+    <!-- <link rel="icon" href=/images/favicon.ico"/> -->
     <link href="/styles/a.css" rel="stylesheet" type="text/css" />
 </head>
 

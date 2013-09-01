@@ -4,14 +4,16 @@
     xmlns:beans="http://www.springframework.org/schema/beans"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
-    <http>
-        <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <intercept-url pattern="/signUp*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMINISTRATOR" />
+    <http pattern="/assets/**" security="none" />
 
-        <form-login login-page="/login" default-target-url="/accounts/ec2/overview" authentication-failure-url="/login?error=true" />
+    <http>
+        <intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/signUp*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <!-- <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMINISTRATOR" /> -->
+
+        <form-login login-page="/" default-target-url="/accounts/ec2/overview" authentication-failure-url="/?error=true" />
         <logout delete-cookies="JSESSIONID" logout-success-url="/login" />
-        <session-management invalid-session-url="/login" />
+        <session-management invalid-session-url="/" />
     </http>
 
     <authentication-manager>

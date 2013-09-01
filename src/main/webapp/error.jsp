@@ -7,7 +7,7 @@
 <body id="error-body">
 	<div id="error">
 		<a href="/accounts/ec2/overview">
-		    <img src="/images/404.png" alt="404 page not found">
+		    <img src="/assets/img/404.png" alt="404 page not found">
 		</a>
 	</div>
 </body>
