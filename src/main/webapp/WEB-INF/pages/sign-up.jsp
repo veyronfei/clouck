@@ -53,7 +53,7 @@ body {
 
         <p>
         <button class="btn btn-large btn-primary" type="submit">Sign up</button>
-        <a href="/login">Have an account? Log in.</a>
+        <a href="/">Have an account? Log in.</a>
         </p>
     </form:form>
 </div>
