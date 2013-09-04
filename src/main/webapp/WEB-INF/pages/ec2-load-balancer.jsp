@@ -12,12 +12,12 @@
     <div class="span13">
         <ul class="breadcrumb">
             <li>
-                <a href="/accounts/${currentAccount.id}/ec2/loadBalancers/versions">Load Balancers</a>
+                <a href="${ctx}/accounts/${currentAccount.id}/ec2/loadBalancers/versions">Load Balancers</a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">
                 <i class="icon-time"></i>
-                <a href="/accounts/${currentAccount.id}/ec2/loadBalancers?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
+                <a href="${ctx}/accounts/${currentAccount.id}/ec2/loadBalancers?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">

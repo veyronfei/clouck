@@ -5,15 +5,16 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
     <http pattern="/assets/**" security="none" />
+    <http pattern="/login" security="none" />
+    <http pattern="/signUp" security="none" />
 
     <http>
-        <intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <intercept-url pattern="/signUp*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <!-- <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMINISTRATOR" /> -->
+        <!-- <intercept-url pattern="/signUp*" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
+        <intercept-url pattern="/**" access="ROLE_USER" />
 
-        <form-login login-page="/" default-target-url="/accounts/ec2/overview" authentication-failure-url="/?error=true" />
-        <logout delete-cookies="JSESSIONID" logout-success-url="/" />
-        <session-management invalid-session-url="/" />
+        <form-login login-page="/login" default-target-url="/accounts/ec2/overview" authentication-failure-url="/login?error=true" />
+        <logout delete-cookies="JSESSIONID" logout-success-url="/login" />
+        <session-management invalid-session-url="/login" />
     </http>
 
     <authentication-manager>

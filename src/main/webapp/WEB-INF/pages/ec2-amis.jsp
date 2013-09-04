@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a> <span class="divider">&gt;</span></li>
+            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a> <span class="divider">&gt;</span></li>
             <li class="active">
                 <i class="icon-time"></i>
                 <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -47,7 +47,7 @@
                     <td>${ec2Resource.tag}</td>
                     <td>${resource.name}</td>
                     <td>
-                        <a href="/accounts/${currentAccount.id}/ec2/amis/${ec2Resource.id}?at=${at.time}">${resource.imageId}</a>
+                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/amis/${ec2Resource.id}?at=${at.time}">${resource.imageId}</a>
                     </td>
                     <td>${resource.ownerId}/${resource.name}</td>
                     <td>${resource.ownerId}</td>

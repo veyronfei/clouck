@@ -44,7 +44,7 @@
 				</c:forEach>
 				</td>
 				<td>
-				    <a class="btn" href="/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${ec2VersionMetaRep.millis}${regionUrl}">Browse</a>
+				    <a class="btn" href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${ec2VersionMetaRep.millis}${regionUrl}">Browse</a>
 				</td>
 			</tr>
 			</c:forEach>

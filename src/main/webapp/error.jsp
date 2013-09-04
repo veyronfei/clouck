@@ -6,7 +6,7 @@
 </head>
 <body id="error-body">
 	<div id="error">
-		<a href="/accounts/ec2/overview">
+		<a href="${ctx}/accounts/ec2/overview">
 		    <img src="/assets/img/404.png" alt="404 page not found">
 		</a>
 	</div>

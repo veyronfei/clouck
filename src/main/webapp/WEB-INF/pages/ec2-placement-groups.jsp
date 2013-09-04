@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/accounts/${currentAccount.id}/ec2/placementGroups/versions">Placement Groups</a> <span class="divider">&gt;</span></li>
+            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/placementGroups/versions">Placement Groups</a> <span class="divider">&gt;</span></li>
             <li class="active">
                 <i class="icon-time"></i>
                 <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -38,7 +38,7 @@
                  <tr>
                     <td>${ec2Resource.region}</td>
                     <td>
-                        <a href="/accounts/${currentAccount.id}/ec2/placementGroups/${ec2Resource.id}?at=${at.time}">${resource.groupName}</a>
+                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/placementGroups/${ec2Resource.id}?at=${at.time}">${resource.groupName}</a>
                     </td>
                     <td>${resource.strategy}</td>
                     <td>${resource.state}</td>

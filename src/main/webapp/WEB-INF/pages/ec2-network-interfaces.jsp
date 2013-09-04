@@ -22,7 +22,7 @@
 	        <h4>Network Interfaces @ ${at}</h4>
         </div>
         <div class="span1 offset5">
-            <a class="btn" href="/accounts/${currentAccount.id}/ec2/versions/networkInterfaces${regionUrl}">${numOfEc2VersionMetas} versions</a>
+            <a class="btn" href="${ctx}/accounts/${currentAccount.id}/ec2/versions/networkInterfaces${regionUrl}">${numOfEc2VersionMetas} versions</a>
         </div>
         <!-- <div id="instanceChart" style="width:100%; height:100px;"></div> -->
     </div>
@@ -57,7 +57,7 @@
 	                    <td>${ec2Resource.region}</td>
                     </c:if>
                     <td>
-                        <a href="/accounts/${currentAccount.id}/ec2/networkInterfaces/${ec2Resource.id}${regionUrl}">${resource.networkInterfaceId}</a>
+                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces/${ec2Resource.id}${regionUrl}">${resource.networkInterfaceId}</a>
                     </td>
                     <td>${resource.subnetId}</td>
                     <td>${resource.availabilityZone}</td>

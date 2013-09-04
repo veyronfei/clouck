@@ -39,7 +39,7 @@ body {
 <body>
 
 <div class="container">
-    <form action="/j_spring_security_check" class="form-signin" method="POST">
+    <form action="${ctx}/j_spring_security_check" class="form-signin" method="POST">
 		<h2 class="form-signin-heading">Log in</h2>
 	    <div style="margin: 0; padding: 0; display: inline">
             <c:if test="${param.error == 'true'}">
@@ -49,7 +49,7 @@ body {
 		<input type="text" name="j_username" class="input-block-level" placeholder="Email">
 		<input type="password" name="j_password" class="input-block-level" placeholder="Password">
 		<button class="btn btn-large btn-primary" type="submit">Log in</button>
-		<a href="/signUp">Need an account? Sign up.</a>
+		<a href="${ctx}/signUp">Need an account? Sign up.</a>
 	</form>
 </div>
 

@@ -39,7 +39,7 @@
         <h4>EC2 Network Interface: ${ec2Resource.resource.imageId} @ <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ec2Resource.timeDetected}" /></h4>
     </div>
     <div class="span1 offset5">
-        <a class="btn" href="/accounts/${currentAccount.id}/ec2/versions/amis/${ec2Resource.uniqueId}${regionUrl}">${numOfEc2VersionMetas} versions</a>
+        <a class="btn" href="${ctx}/accounts/${currentAccount.id}/ec2/versions/amis/${ec2Resource.uniqueId}${regionUrl}">${numOfEc2VersionMetas} versions</a>
     </div>
 </div>
 

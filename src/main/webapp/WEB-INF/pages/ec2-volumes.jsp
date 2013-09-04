@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="/accounts/${currentAccount.id}/ec2/volumes/versions">Volumes</a> <span class="divider">&gt;</span></li>
+            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/volumes/versions">Volumes</a> <span class="divider">&gt;</span></li>
             <li class="active">
                 <i class="icon-time"></i>
                 <fmt:formatDate pattern="${datePattern}" value="${at}" />
@@ -43,7 +43,7 @@
                     <td>${ec2Resource.region}</td>
                     <td>${ec2Resource.tag}</td>
                     <td>
-                        <a href="/accounts/${currentAccount.id}/ec2/volumes/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.volumeId}</a>
+                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/volumes/${ec2Resource.id}?at=${at.time}">${ec2Resource.resource.volumeId}</a>
                     </td>
                     <td>${ec2Resource.resource.size} GiB</td>
                     <td>${ec2Resource.resource.volumeType}</td>

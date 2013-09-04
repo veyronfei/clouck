@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.clouck.service.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/login")
 public class LoginController extends AbstractController {
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 

@@ -12,12 +12,12 @@
     <div class="span13">
         <ul class="breadcrumb">
             <li>
-                <a href="/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a>
+                <a href="${ctx}/accounts/${currentAccount.id}/ec2/amis/versions">AMIs</a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">
                 <i class="icon-time"></i>
-                <a href="/accounts/${currentAccount.id}/ec2/amis?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
+                <a href="${ctx}/accounts/${currentAccount.id}/ec2/amis?at=${at.time}"><fmt:formatDate pattern="${datePattern}" value="${at}" /></a>
                 <span class="divider">&gt;</span>
             </li>
             <li class="active">
