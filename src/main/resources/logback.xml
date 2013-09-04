@@ -9,7 +9,7 @@
 	<timestamp key="timestamp" datePattern="yyyy-MM-dd-HH-mm-ss" />
 
 	<logger name="com.clouck">
-		<level value="TRACE" />
+		<level value="INFO" />
 	</logger>
 
     <logger name="org.springframework">
