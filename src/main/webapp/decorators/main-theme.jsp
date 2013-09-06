@@ -176,7 +176,7 @@ html, body {
 							    <a href="${ctx}/accounts/${currentAccount.id}/ec2/keyPairs/versions">Key Pairs</a>
 							</li>
 							<li class="<c:if test="${currentResourceMenu == 'networkInterfaces'}">active</c:if>">
-							    <a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces?at=${millis}">Network Interfaces</a>
+							    <a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces/versions">Network Interfaces</a>
 							</li>
 						</ul>
 					</div>

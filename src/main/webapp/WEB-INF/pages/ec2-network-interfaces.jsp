@@ -8,34 +8,25 @@
 <title>Network Interfaces</title>
 </head>
 <body>
-<c:choose>
-    <c:when test="${currentRegion.regions.name == null}">
-        <c:set var="regionUrl"></c:set>
-    </c:when>
-    <c:otherwise>
-        <c:set var="regionUrl">?region=${currentRegion.regions.name}</c:set>
-    </c:otherwise>
-</c:choose>
 <div class="row-fluid">
     <div class="span13">
-        <div class="span6">
-	        <h4>Network Interfaces @ ${at}</h4>
-        </div>
-        <div class="span1 offset5">
-            <a class="btn" href="${ctx}/accounts/${currentAccount.id}/ec2/versions/networkInterfaces${regionUrl}">${numOfEc2VersionMetas} versions</a>
-        </div>
-        <!-- <div id="instanceChart" style="width:100%; height:100px;"></div> -->
+        <ul class="breadcrumb">
+            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces/versions">Network Interfaces</a> <span class="divider">&gt;</span></li>
+            <li class="active">
+                <i class="icon-time"></i>
+                <fmt:formatDate pattern="${datePattern}" value="${at}" />
+            </li>
+        </ul>
     </div>
 </div>
 
-<div class="row-fluid" style="padding-top: 20px;">
+<div class="row-fluid">
     <div class="span13">
         <table id="networkInterfacesTable" class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <c:if test="${currentRegion.regions.name == null}">
-	                    <th>Region</th>
-                    </c:if>
+                    <th>Region</th>
+                    <th>Name</th>
                     <th>Network Interface ID</th>
                     <th>Subnet ID</th>
                     <th>Zone</th>
@@ -51,51 +42,44 @@
             </thead>
             <tbody>
                 <c:forEach items="${ec2Resources}" var="ec2Resource">
-                <c:set var="resource" value="${ec2Resource.resource}"/>
-                 <tr>
-                    <c:if test="${currentRegion.regions.name == null}">
+                    <c:set var="resource" value="${ec2Resource.resource}"/>
+                    <tr>
 	                    <td>${ec2Resource.region}</td>
-                    </c:if>
-                    <td>
-                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces/${ec2Resource.id}${regionUrl}">${resource.networkInterfaceId}</a>
-                    </td>
-                    <td>${resource.subnetId}</td>
-                    <td>${resource.availabilityZone}</td>
-                    <td>
-                    <c:forEach items="${ec2Resource.resource.groups}" var="securityGroup">
-                        ${securityGroup.groupName},&nbsp;
-                    </c:forEach>
-                    </td>
-                    <td>${resource.description}</td>
-                    <td>${resource.attachment.instanceId}</td>
-                    <td>${resource.status}</td>
-                    <td>${resource.association.publicIp}</td>
-                    <td>${resource.privateIpAddress}</td>
-                    <td>
-                    <c:forEach items="${ec2Resource.resource.privateIpAddresses}" var="privateIpAddress">
-                        ${privateIpAddress.privateIpAddress},&nbsp;
-                    </c:forEach>
-                    </td>
-                    <td>
-                        <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ec2Resource.timeDetected}" />
-                    </td>
-                </tr>
+	                    <td>${ec2Resource.tag}</td>
+	                    <td>
+	                        <a href="${ctx}/accounts/${currentAccount.id}/ec2/networkInterfaces/${ec2Resource.id}?at=${at.time}">${resource.networkInterfaceId}</a>
+	                    </td>
+	                    <td>${resource.subnetId}</td>
+	                    <td>${resource.availabilityZone}</td>
+	                    <td>
+	                    <c:forEach items="${resource.groups}" var="securityGroup" varStatus="status">
+	                        ${securityGroup.groupName}<c:if test="${status.count != fn:length(resource.groups)}">,&nbsp;</c:if>
+	                    </c:forEach>
+	                    </td>
+	                    <td>${resource.description}</td>
+	                    <td>${resource.attachment.instanceId}</td>
+	                    <td>${resource.status}</td>
+	                    <td>${resource.association.publicIp}</td>
+	                    <td>${resource.privateIpAddress}</td>
+	                    <td>
+	                    <c:forEach items="${resource.privateIpAddresses}" var="privateIpAddress" varStatus="status">
+	                        ${privateIpAddress.privateIpAddress}<c:if test="${status.count != fn:length(resource.privateIpAddresses)}">,&nbsp;</c:if>
+	                    </c:forEach>
+	                    </td>
+	                    <td>
+	                        <fmt:formatDate pattern="${datePattern}" value="${ec2Resource.timeDetected}" />
+	                    </td>
+                    </tr>
                 </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function() {
-		/* loadOverviewChart('instanceChart', 'instances', '${currentAccount.id}', '${millis}'); */
-        $('#networkInterfacesTable').dataTable({
-            "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ records per page"
-            }
-        });
-	});
+        loadSummaryDataTable('networkInterfacesTable');
+    });
 </script>
 </body>
 </html>

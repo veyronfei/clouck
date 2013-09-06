@@ -14,6 +14,7 @@ import com.clouck.exception.ClouckError;
 import com.clouck.model.AbstractModel;
 import com.clouck.model.Region;
 import com.clouck.model.ResourceType;
+import com.clouck.model.aws.ec2.Ec2NetworkInterface;
 
 @SuppressWarnings("serial")
 public abstract class AbstractResource<R> extends AbstractModel {
@@ -40,17 +41,24 @@ public abstract class AbstractResource<R> extends AbstractModel {
 
     @SuppressWarnings("unchecked")
     public String getTag() {
+        List<Tag> tags;
         try {
-            List<Tag> tags = (List<Tag>) PropertyUtils.getSimpleProperty(this.getResource(), "tags");
-            for (Tag tag : tags) {
-                if (tag.getKey().equals("Name")) {
-                    return tag.getValue();
-                }
+            tags = (List<Tag>) PropertyUtils.getSimpleProperty(this.getResource(), "tags");
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            return null;
+        } catch (NoSuchMethodException e1) {
+            try {
+                tags = (List<Tag>) PropertyUtils.getSimpleProperty(this.getResource(), "tagSet");
+            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                return null;
             }
-            return null;
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            return null;
         }
+        for (Tag tag : tags) {
+            if (tag.getKey().equals("Name")) {
+                return tag.getValue();
+            }
+        }
+        return null;
     }
 
     @Override
