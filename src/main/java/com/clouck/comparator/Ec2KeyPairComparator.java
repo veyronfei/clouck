@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.amazonaws.services.ec2.model.Instance;
-import com.amazonaws.services.ec2.model.KeyPair;
 import com.amazonaws.services.ec2.model.KeyPairInfo;
 import com.clouck.model.Event;
 import com.clouck.model.EventType;
