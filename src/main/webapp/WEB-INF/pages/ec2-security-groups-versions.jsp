@@ -34,8 +34,8 @@
         </div>
     </div>
     <div class="span2" style="display: inline;">
-        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'securityGroups')">Filter</button>
-        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'securityGroups')">Clear</button>
+        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'securityGroups', '${ctx}')">Filter</button>
+        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'securityGroups', '${ctx}')">Clear</button>
     </div>
 </div>
 
@@ -66,7 +66,7 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort": false,
-            "sAjaxSource": "/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/securityGroups"
+            "sAjaxSource": "${ctx}/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/securityGroups"
         });
     });
 </script>

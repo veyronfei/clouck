@@ -37,7 +37,7 @@ var options = {
     title: null
 };
 
-function filterVersions(accountId, resourceType) {
+function filterVersions(accountId, resourceType, ctx) {
 	var startingDateTime = $("#endingDateTime").val();
 	var uniqueId = $("#uniqueId").val().trim();
 	$("#uniqueId").val(uniqueId);
@@ -64,7 +64,7 @@ function filterVersions(accountId, resourceType) {
 			query += "?region=" + region;
 		} 
 	}
-	oTable.fnReloadAjax('/rest/dataTable/accounts/' + accountId + '/ec2/versions/' + resourceType + query);
+	oTable.fnReloadAjax(ctx + '/rest/dataTable/accounts/' + accountId + '/ec2/versions/' + resourceType + query);
 }
 
 function loadSummaryDataTable(summaryDataTableId) {
@@ -74,11 +74,11 @@ function loadSummaryDataTable(summaryDataTableId) {
     });
 }
 
-function clearFilter(accountId, resourceType) {
+function clearFilter(accountId, resourceType, ctx) {
 	$("#endingDateTime").val('');
 	$("#uniqueId").val('');
 	$("#region")[0].selectedIndex = 0;
-	oTable.fnReloadAjax('/rest/dataTable/accounts/' + accountId + '/ec2/versions/' + resourceType);
+	oTable.fnReloadAjax(ctx + '/rest/dataTable/accounts/' + accountId + '/ec2/versions/' + resourceType);
 }
 
 function addNewAccount(showClose) {

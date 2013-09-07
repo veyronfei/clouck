@@ -35,8 +35,8 @@
         </div>
     </div>
     <div class="span2" style="display: inline;">
-        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'networkInterfaces')">Filter</button>
-        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'networkInterfaces')">Clear</button>
+        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'networkInterfaces', '${ctx}')">Filter</button>
+        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'networkInterfaces', '${ctx}')">Clear</button>
     </div>
 </div>
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
         "bLengthChange": false,
         "bFilter": false,
         "bSort": false,
-        "sAjaxSource": "/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/networkInterfaces"
+        "sAjaxSource": "${ctx}/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/networkInterfaces"
     });
 });
 </script>

@@ -34,8 +34,8 @@
         </div>
     </div>
     <div class="span2" style="display: inline;">
-        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'elasticIPs')">Filter</button>
-        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'elasticIPs')">Clear</button>
+        <button id ="filter" class="btn btn-primary" type="button" onclick="javascript:filterVersions('${currentAccount.id}', 'elasticIPs', '${ctx}')">Filter</button>
+        <button class="btn btn-primary" type="button" onclick="javascript:clearFilter('${currentAccount.id}', 'elasticIPs', '${ctx}')">Clear</button>
     </div>
 </div>
 
@@ -66,7 +66,7 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort": false,
-            "sAjaxSource": "/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/elasticIPs"
+            "sAjaxSource": "${ctx}/rest/dataTable/accounts/${currentAccount.id}/ec2/versions/elasticIPs"
         });
     });
 </script>
