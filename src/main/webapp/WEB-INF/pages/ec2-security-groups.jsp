@@ -54,7 +54,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('securityGroupsTable');
+        loadSummaryDataTable('securityGroupsTable', ${ctx});
     });
 </script>
 </body>

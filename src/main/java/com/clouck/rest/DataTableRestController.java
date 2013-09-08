@@ -2,6 +2,8 @@ package com.clouck.rest;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
@@ -56,7 +58,9 @@ public class DataTableRestController extends AbstractController {
     public @ResponseBody DataTableRep showDataBable(@PathVariable String accountId, @PathVariable String resourceType,
             @RequestParam(value = "region", required = false) String regionEndpoint,
             @RequestParam Integer sEcho, @RequestParam Integer iDisplayStart,
-            @RequestParam(required = false) Long ending, @RequestParam(required = false) String uniqueId) {
+            @RequestParam(required = false) Long ending, @RequestParam(required = false) String uniqueId,
+            HttpServletRequest request) {
+        String ctx = request.getContextPath();
         ResourceType rt = ResourceType.find(resourceType);
         Region region = findRegion(regionEndpoint);
 
@@ -66,6 +70,6 @@ public class DataTableRestController extends AbstractController {
         long numOfFilteredEc2VersionMetas = awsService.countEc2VersionMetas(accountId, rt, region, dt, true, uniqueId);
         long totalNumEc2VersionMetas = awsService.countEc2VersionMetas(accountId, rt);
         
-        return converter.toDataTableData(accountId, resourceType, region, ec2VersionMetas, sEcho, totalNumEc2VersionMetas, numOfFilteredEc2VersionMetas);
+        return converter.toDataTableData(accountId, resourceType, region, ec2VersionMetas, sEcho, totalNumEc2VersionMetas, numOfFilteredEc2VersionMetas, ctx);
     }
 }

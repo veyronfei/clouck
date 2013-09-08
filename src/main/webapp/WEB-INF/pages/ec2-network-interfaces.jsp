@@ -78,7 +78,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('networkInterfacesTable');
+        loadSummaryDataTable('networkInterfacesTable', ${ctx});
     });
 </script>
 </body>

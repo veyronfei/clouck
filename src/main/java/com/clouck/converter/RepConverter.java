@@ -532,7 +532,8 @@ public class RepConverter {
 
     public DataTableRep toDataTableData(String accountId, String resourceType, Region region,
             List<Ec2VersionMeta> ec2VersionMetas, Integer sEcho,
-            long totalNumEc2VersionMetas, long numOfFilteredEc2VersionMetas) {
+            long totalNumEc2VersionMetas, long numOfFilteredEc2VersionMetas,
+            String ctx) {
         DataTableRep result = new DataTableRep();
         result.setiTotalRecords((int)totalNumEc2VersionMetas);
         result.setiTotalDisplayRecords((int)numOfFilteredEc2VersionMetas);
@@ -557,7 +558,7 @@ public class RepConverter {
             }
             row.add(sb.toString());
             sb = new StringBuilder();
-            sb.append("<a class=\"btn\" href=\"/accounts/");
+            sb.append("<a class=\"btn\" href=\""+ ctx + "/accounts/");
             sb.append(accountId);
             sb.append("/ec2/");
             sb.append(resourceType);

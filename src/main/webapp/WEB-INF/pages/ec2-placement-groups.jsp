@@ -53,7 +53,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('placementGroupsTable');
+        loadSummaryDataTable('placementGroupsTable', ${ctx});
     });
 </script>
 </body>

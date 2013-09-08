@@ -1,5 +1,4 @@
 <%@ include file="/common/taglibs.jsp"%>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <%@include file="header.jspf"%>
@@ -73,20 +72,20 @@ html, body {
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<a class="brand" href="/accounts/ec2/overview">Clouck</a>
+					<a class="brand" href="${ctx}/accounts/ec2/overview">Clouck</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><a href="/accounts/ec2/overview">EC2</a></li>
+							<li><a href="${ctx}/accounts/ec2/overview">EC2</a></li>
 						</ul>
 						<ul class="nav pull-right">
 	                        <li id="fat-menu" class="dropdown">
 	                            <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">${currentUser.fullName}<b class="caret"></b></a>
 	                            <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 	                                <li>
-	                                    <a role="menuitem" tabindex="-1" href="/accountSetting">Account Setting</a>
+	                                    <a role="menuitem" tabindex="-1" href="${ctx}/accountSetting">Account Setting</a>
 	                                </li>
 	                                <li role="presentation">
-	                                    <a role="menuitem" tabindex="-1" href="/j_spring_security_logout">Logout</a>
+	                                    <a role="menuitem" tabindex="-1" href="${ctx}/j_spring_security_logout">Logout</a>
 	                                </li>
 	                            </ul>
 	                        </li>
@@ -113,7 +112,7 @@ html, body {
     <%@include file="footer.jspf"%>
 	<!-- Modal -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <form:form modelAttribute="newAccount" action="/accounts" method="POST" >
+	    <form:form modelAttribute="newAccount" action="${ctx}/accounts" method="POST" >
 		    <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		        <h3 id="myModalLabel">Connect an account?</h3>

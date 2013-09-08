@@ -62,7 +62,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('loadBalancersTable');
+        loadSummaryDataTable('loadBalancersTable', ${ctx});
     });
 </script>
 </body>

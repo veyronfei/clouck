@@ -51,7 +51,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('keyPairsTable');
+        loadSummaryDataTable('keyPairsTable', ${ctx});
     });
 </script>
 </body>

@@ -77,7 +77,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-    	loadSummaryDataTable('instancesTable');
+    	loadSummaryDataTable('instancesTable', ${ctx});
 	});
 </script>
 </body>

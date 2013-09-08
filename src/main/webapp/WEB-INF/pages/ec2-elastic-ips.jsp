@@ -55,7 +55,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('elasticIPsTable');
+        loadSummaryDataTable('elasticIPsTable', ${ctx});
     });
 </script>
 </body>

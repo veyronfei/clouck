@@ -64,7 +64,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('volumesTable');
+        loadSummaryDataTable('volumesTable', ${ctx});
     });
 </script>
 </body>

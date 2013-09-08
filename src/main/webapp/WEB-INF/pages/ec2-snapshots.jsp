@@ -60,7 +60,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        loadSummaryDataTable('snapshotsTable');
+        loadSummaryDataTable('snapshotsTable', ${ctx});
     });
 </script>
 </body>

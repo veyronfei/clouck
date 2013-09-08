@@ -52,14 +52,16 @@
                     <td>${resource.ownerId}/${resource.name}</td>
                     <td>${resource.ownerId}</td>
                     <td>
+                    <%--FIX ME
                     <c:choose>
-                        <c:when test="${resource.public}">
+                        <c:when test="${empty resource.public}">
                         Public
                         </c:when>
                         <c:otherwise>
                         Private
                         </c:otherwise>
                     </c:choose>
+                     --%>
                     </td>
                     <td>${resource.state}</td>
                     <td>
@@ -85,7 +87,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-    	loadSummaryDataTable('amisTable');
+    	//loadSummaryDataTable('amisTable', '${ctx}');
 	});
 </script>
 </body>
