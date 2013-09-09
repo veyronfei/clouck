@@ -49,6 +49,7 @@
 	</properties>
 
 	<build>
+	    <finalName>clouck</finalName>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
 			<plugin>
