@@ -53,10 +53,12 @@
 
     <c:set var="ipPermissions" value="${ec2Resource.resource.ipPermissions}"/>
     <c:set var="title" value="Inbound"/>
+    <c:set var="direction" value="Source"/>
     <%@ include file="ec2-security-in-out-bound.jspf"%>
 
     <c:set var="ipPermissions" value="${ec2Resource.resource.ipPermissionsEgress}"/>
     <c:set var="title" value="Outbound"/>
+    <c:set var="direction" value="Destination"/>
     <%@ include file="ec2-security-in-out-bound.jspf"%>
 </div>
 </body>

@@ -18,7 +18,7 @@
             <c:if test="${count != 0}">
                 <tr>
                     <td width="50%"><strong>ALL Port (Service)</strong></td>
-                    <td width="50%"><strong>Source</strong></td>
+                    <td width="50%"><strong>${direction}</strong></td>
                 </tr>
                 <c:set var="ipProtocol" value="-1"/>
                 <%@ include file="ec2-security-ip-permissions.jspf"%>
@@ -33,7 +33,7 @@
             <c:if test="${count != 0}">
                 <tr>
                     <td width="50%"><strong>ICMP Port (Service)</strong></td>
-                    <td width="50%"><strong>Source</strong></td>
+                    <td width="50%"><strong>${direction}</strong></td>
                 </tr>
                 <c:set var="ipProtocol" value="icmp"/>
                 <%@ include file="ec2-security-ip-permissions.jspf"%>
@@ -48,7 +48,7 @@
             <c:if test="${count != 0}">
                 <tr>
                     <td width="50%"><strong>TCP Port (Service)</strong></td>
-                    <td width="50%"><strong>Source</strong></td>
+                    <td width="50%"><strong>${direction}</strong></td>
                 </tr>
                 <c:set var="ipProtocol" value="tcp"/>
                 <%@ include file="ec2-security-ip-permissions.jspf"%>
@@ -63,7 +63,7 @@
             <c:if test="${count != 0}">
                 <tr>
                     <td width="50%"><strong>UDP Port (Service)</strong></td>
-                    <td width="50%"><strong>Source</strong></td>
+                    <td width="50%"><strong>${direction}</strong></td>
                 </tr>
                 <c:set var="ipProtocol" value="udp"/>
                 <%@ include file="ec2-security-ip-permissions.jspf"%>
