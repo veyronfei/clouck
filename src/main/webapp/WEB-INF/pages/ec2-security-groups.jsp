@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span13">
         <ul class="breadcrumb">
-            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/securityGroups/versions">Instances</a> <span class="divider">&gt;</span></li>
+            <li><a href="${ctx}/accounts/${currentAccount.id}/ec2/securityGroups/versions">Security Groups</a> <span class="divider">&gt;</span></li>
             <li class="active">
                 <i class="icon-time"></i>
                 <fmt:formatDate pattern="${datePattern}" value="${at}" />
