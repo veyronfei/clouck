@@ -90,7 +90,7 @@ html, body {
 	                                    <a role="menuitem" tabindex="-1" href="${ctx}/accounts"">Account Setting</a>
 	                                </li>
 	                                <li role="presentation">
-	                                    <a role="menuitem" tabindex="-1" href="/j_spring_security_logout">Logout</a>
+	                                    <a role="menuitem" tabindex="-1" href="${ctx}/j_spring_security_logout">Logout</a>
 	                                </li>
 	                            </ul>
 	                        </li>
