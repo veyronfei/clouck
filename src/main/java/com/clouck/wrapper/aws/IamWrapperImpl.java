@@ -84,6 +84,6 @@ public class IamWrapperImpl implements IamWrapper {
 
         GetUserResult res = iam.getUser();
 
-        return res.getUser().getUserId();
+        return res.getUser().getArn().split(":")[4];
     }
 }
