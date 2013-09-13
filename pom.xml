@@ -6,7 +6,7 @@
 	<groupId>com.clouck</groupId>
 	<artifactId>clouck</artifactId>
 	<packaging>war</packaging>
-	<version>0.1.1</version>
+	<version>0.5.2</version>
 	<name>Clouck</name>
 	<url>http://www.clouck.com</url>
 

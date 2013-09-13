@@ -1,4 +1,4 @@
-Clouck v0.1
+Clouck v0.5.2
 ======
 
 Clouck is a operation log recorder for aws, created and maintained by Fei Teng.
