@@ -1,12 +1,8 @@
 Clouck v0.5.2
 ======
 
-Clouck(Cloud Clock) is a service to track your AWS account changes, created and maintained by Fei Teng.
+Clouck(Cloud Clock) is a service to track your AWS resource changes, created and maintained by Fei Teng.
 
-
-## Bugs and feature requests
-
-Have a bug or a feature request? [Please open a new issue](https://github.com/veyronfei/clouck/issues). Before opening any issue, please search for existing issues.
 
 ## DETAILS
 
@@ -16,7 +12,7 @@ Please see the [wiki](https://github.com/veyronfei/clouck/wiki).
 
 **Fei Teng**
 
-+ [http://twitter.com/veyronfei](http://twitter.com/veyronfei)
++ [@veyronfei](http://twitter.com/veyronfei)
 + [http://github.com/veyronfei](http://github.com/veyronfei)
 + [http://linkedin.com/in/veyronfei](http://linkedin.com/in/veyronfei)
 
