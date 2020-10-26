@@ -24,7 +24,7 @@
 		<maven.processor.plugin.version>2.0.6</maven.processor.plugin.version>
 		<jackson.mapper>1.9.7</jackson.mapper>
 		<spring.version>3.2.3.RELEASE</spring.version>
-        <spring.security.version>3.1.4.RELEASE</spring.security.version>
+        <spring.security.version>5.4.1</spring.security.version>
 		<aspectj.version>1.7.0</aspectj.version>
 		<slf4j.version>1.6.4</slf4j.version>
 		<jcl.over.slf4j.version>1.6.6</jcl.over.slf4j.version>
